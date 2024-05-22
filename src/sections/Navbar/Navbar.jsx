@@ -1,83 +1,51 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
-import { BsPerson, BsCodeSlash } from "react-icons/bs";
-import { CgPhone } from "react-icons/cg";
+import React, { useState } from 'react';
+import styles from './NavbarStyle.module.css';
 
-const Nav = () => {
-  const [navbarblur, setnavbarblur] = useState(false);
-
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      setnavbarblur(true);
-    } else {
-      setnavbarblur(false);
-    }
-  }
-
-  var showMenu = () => {
-    var bar = document.getElementsByClassName("bar");
-    var ham = document.getElementsByClassName("NavbarLinks");
-    bar[0].classList.toggle("barOne");
-    bar[1].classList.toggle("barTwo");
-    bar[2].classList.toggle("barThree");
-
-    ham[0].classList.toggle("showNavbar");
-  };
-
-  var hideMenu = () => {
-    var bar = document.getElementsByClassName("bar");
-    var ham = document.getElementsByClassName("NavbarLinks");
-    bar[0].classList.remove("barOne");
-    bar[1].classList.remove("barTwo");
-    bar[2].classList.remove("barThree");
-    ham[0].classList.remove("showNavbar");
-  };
-
-  window.addEventListener("scroll", scrollHandler);
-
+const Navbar = () => {
+    const[Toggle, showMenu] = useState(false);
   return (
-    <nav className={navbarblur ? "Navbar blur" : "Navbar"}>
-      <h1
-        title="Reload"
-        onClick={() => window.location.reload(true)}
-        className="Logo"
-      >
-        ER
-      </h1>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <a href="" className={styles.nav__logo}>Juanbenedhit</a>
 
-      <div className="Hamburger" onClick={showMenu}>
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
-      </div>
+          <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
+            <ul className="nav__list grid">
 
-      <ul className="NavbarLinks">
-        <li onClick={hideMenu}>
-          <Link to="/">
-            <AiOutlineHome /> Home
-          </Link>
-        </li>
-        <li onClick={hideMenu}>
-          <Link to="/About">
-            <BsPerson /> About
-          </Link>
-        </li>
-        <li onClick={hideMenu}>
-          <Link to="/Project">
-            <BsCodeSlash /> Projects
-          </Link>
-        </li>
-        <li onClick={hideMenu}>
-          <Link to="/Contact">
-            <CgPhone />
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </nav>
+              <li className="nav__item">
+                <a href="#hero" className={styles.nav__link} active-link>
+                  <i className="uil uil- nav__icon">Home</i>
+                </a>
+              </li>
+
+              <li className="nav__item">
+                <a href="#projects" className="nav__link">
+                  <i className="uil uil- nav__icon">Project</i>
+                </a>
+              </li>
+
+              <li className="nav__item">
+                <a href="#skills" className="nav__link">
+                  <i className="uil uil- nav__icon">Skills</i>
+                </a>
+              </li>
+
+              <li className="nav__item">
+                <a href="#contact" className="nav__link">
+                  <i className="uil uil- nav__icon">Contact</i>
+                </a>
+              </li>
+            </ul>
+
+            <i class ="uil uil-times nav__close" onClick={() => showMenu(!Toggle)}></i>
+
+            <div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
+              <i class="ui uil-apps"></i>
+            </div>
+
+          </div>
+      </nav>
+    </header>
   );
-};
+}
 
-export default Nav;
+export default Navbar;
