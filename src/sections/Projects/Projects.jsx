@@ -40,8 +40,7 @@ function Projects() {
           h3="Coming Soon"
           p="DApps"
         />
-        
-        
+
       </div>
     </section>
   );
