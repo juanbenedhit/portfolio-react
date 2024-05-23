@@ -1,0 +1,30 @@
+.animated-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* Untuk membuatnya terlihat seperti lingkaran */
+    pointer-events: none;
+    /* Agar tidak mengganggu interaksi mouse dengan elemen lain */
+    z-index: 9999;
+    /* Pastikan kursor di atas elemen lain */
+    animation: neon 1s infinite alternate;
+    /* Animasi neon */
+    transition: transform 0.3s ease;
+    /* Efek transisi saat transformasi */
+}
+
+@keyframes neon {
+    from {
+        box-shadow: 0 0 10px var(--btn-color), 0 0 20px var(--btn-color), 0 0 30px var(--btn-color), 0 0 40px var(--btn-color), 0 0 70px var(--btn-color), 0 0 80px var(--btn-color), 0 0 100px var(--btn-color), 0 0 150px var(--btn-color);
+    }
+
+    to {
+        box-shadow: 0 0 5px var(--btn-color), 0 0 15px var(--btn-color), 0 0 20px var(--btn-color), 0 0 30px var(--btn-color), 0 0 60px var(--btn-color), 0 0 70px var(--btn-color), 0 0 80px var(--btn-color), 0 0 100px var(--btn-color);
+    }
+}
+
+.animated-cursor.hover {
+    transform: scale(0.8);
+    /* Perkecil kursor saat dihover */
+}
