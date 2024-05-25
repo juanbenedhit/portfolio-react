@@ -20,7 +20,7 @@ function Hero() {
   const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark;
   const[typeEffect] = useTypewriter(
     {
-      words:['Web Developer','Front-End Dev','Blockchain Enthusiasm'],
+      words:['Web Developer','Front-End Dev','Blockchain Enthusiasm','Web 3 Enthusiasm'],
       loop:true,
       typeSpeed: 100,
       deleteSpeed: 40
